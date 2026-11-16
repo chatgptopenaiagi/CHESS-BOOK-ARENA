@@ -1,0 +1,15 @@
+[project]
+name = "chess-book-arena"
+version = "0.1.0"
+requires-python = ">=3.11,<3.16"
+dependencies = ["chess==1.11.2", "PySide6==6.11.0"]
+license = "GPL-3.0-or-later"
+[project.optional-dependencies]
+dev = ["pytest", "pyinstaller==6.22.3"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+[tool.setuptools]
+packages = ["app"]

@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0",
+  "python": "3.14.9",
+  "packages": {
+    "chess": "1.11.2",
+    "PySide6": "6.11.0 ",
+    "pyinstaller": "6.22.3"
+  },
+  "sha256": {
+    "app/catalog.py": "26e697643c90ebf650a95badd17b13846447c27fbff783e0416bf6d893bffa25",
+    "app/gui.py": "2918aa06285075ef55f2a814e25fbcd24ac03699b508409c6552d8309da9edde",
+    "app/main.py": "f54af589d2c35ffbf663041d5bfc2ee78d1f81bb67914eaabf0467d34c73ce8d",
+    "app/opponents.py": "e161b4c1a5f9e69cd10bc40f4b02641d65cb9df88be8284556311b84b96277a0",
+    "app/verification.py": "19b335d5cd3315181f179264b33e408c8536e0b5f8c77ccba789d3e724e8cd39",
+    "app/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "launcher.py": "a15c5f6994bae23fd537347a818fb92fdee74c4ba892f7743def5ef9b9a4326d",
+    "dist/CHESS-BOOK-ARENA/CHESS-BOOK-ARENA.exe": "4cefa1c7e13a97f7774baa734b4f4800cc3a70c9c7c7368a93b3c3594426cfb3",
+    "dist/CHESS-BOOK-ARENA-Setup.exe": "f48441d2848b5eb386e88a93660ce110a7b79e5be13dfb0a46d505cb9f082cd8",
+    "dist/CHESS-BOOK-ARENA-0.1.0-windows-x64.zip": "4bb591752be8ed55a35f883b778fb6372e2720a1449069e7133ab2a1a4992fb3"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "install_exit": 0,
+  "installed_sha256": "4cefa1c7e13a97f7774baa734b4f4800cc3a70c9c7c7368a93b3c3594426cfb3",
+  "portable_hash_matches": true,
+  "installed_acceptance": "PASS",
+  "uninstall_exit": 0,
+  "executable_removed": true,
+  "setup_sha256": "f48441d2848b5eb386e88a93660ce110a7b79e5be13dfb0a46d505cb9f082cd8"
+}

@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "checks": [
+    "folder discovery",
+    "background PGN import",
+    "library selection",
+    "legal human moves",
+    "sourced database replies",
+    "checkmate",
+    "save",
+    "reload PGN",
+    "rendered desktop"
+  ],
+  "origins": [
+    "human",
+    "database #1 \u2022 Frequency; 1 recorded occurrences / weight",
+    "human",
+    "database #1 \u2022 Frequency; 1 recorded occurrences / weight"
+  ],
+  "result": "0-1",
+  "packaged": true
+}

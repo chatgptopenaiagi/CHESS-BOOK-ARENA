@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+.pytest_cache/
+build/
+dist/
+*.sqlite*
+evidence/*.log
+evidence/installed/
+evidence/source-acceptance.*
+
+evidence/tests.xml
