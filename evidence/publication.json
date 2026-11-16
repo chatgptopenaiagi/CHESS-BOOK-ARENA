@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "url": "https://github.com/chatgptopenaiagi/CHESS-BOOK-ARENA/releases/tag/v0.1.0",
+  "draft": false,
+  "downloaded_checksum_file_verified": true,
+  "binary_integrity_method": "GitHub uploaded-asset SHA-256 digest compared with tested local artifacts; binaries not downloaded again",
+  "assets": [
+    {
+      "name": "CHESS-BOOK-ARENA-0.1.0-windows-x64.zip",
+      "size": 52785645,
+      "digest": "sha256:4bb591752be8ed55a35f883b778fb6372e2720a1449069e7133ab2a1a4992fb3"
+    },
+    {
+      "name": "CHESS-BOOK-ARENA-Setup.exe",
+      "size": 36990160,
+      "digest": "sha256:f48441d2848b5eb386e88a93660ce110a7b79e5be13dfb0a46d505cb9f082cd8"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "size": 286,
+      "digest": "sha256:00499c987103ae175adea656a88a1175aa4cc43ce10d1ca1b9ca23ad9210a2e8"
+    }
+  ]
+}
