@@ -20,5 +20,18 @@
       "size": 286,
       "digest": "sha256:00499c987103ae175adea656a88a1175aa4cc43ce10d1ca1b9ca23ad9210a2e8"
     }
-  ]
+  ],
+  "tag_source_verification": {
+    "status": "PASS",
+    "normalization": "CRLF to LF only (Git source normalization); local raw hashes also match build manifest",
+    "files": [
+      "app/catalog.py",
+      "app/gui.py",
+      "app/main.py",
+      "app/opponents.py",
+      "app/verification.py",
+      "app/__init__.py",
+      "launcher.py"
+    ]
+  }
 }
