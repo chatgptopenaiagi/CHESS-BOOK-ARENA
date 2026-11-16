@@ -1,0 +1,9 @@
+# Extended-format feasibility
+
+Researched 2026-11-16. Documentation discovery is not a tested converter integration.
+
+Scid's database is a coordinated three-file set: `.si4` index, `.sn4` names, `.sg4` moves. Reading a lone component is insufficient. The official [Scid vs PC format guide](https://scidvspc.sourceforge.net/doc/Formats.htm) documents this distinction. Its [export guide](https://scidvspc.sourceforge.net/doc/Export.htm) describes PGN export and encoding caveats. Its [pgnscid tool](https://scidvspc.sourceforge.net/doc/Pgnscid.htm) converts in the opposite direction (PGN to Scid), so invoking it as a Scid-to-PGN converter would be wrong. A native coordinated adapter is technically feasible, but no representative Scid set was supplied or tested. Status remains UNSUPPORTED.
+
+ChessBase documents [its database and book families](https://help.chessbase.com/Cbase/15/Eng/database_formats.htm), including CTG books and game exchange between CBH and PGN databases. The [file-extension guide](https://help.chessbase.com/Cbase/14/Eng/filenames.htm) identifies CBV as an archive. Its own application can perform relevant game exchange; that does not establish that this application can parse the proprietary components or that an installed compatible converter exists. PGN game export also must not be described as a faithful CTG book conversion. CBH/CBV/CTG remain UNSUPPORTED here.
+
+No ABK parser/converter was validated. `.scid4` is recognized as a user-facing compatibility candidate, not assumed to be a standardized standalone container. `.sn4` and `.sg4` are shown as components rather than independent supported databases. There is currently no CONVERSION REQUIRED classification because that would imply an actual verified conversion route; manual PGN export remains guidance only. No proprietary-format test or software installation has been fabricated.
