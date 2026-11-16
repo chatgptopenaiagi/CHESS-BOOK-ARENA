@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "sha256": {
+    "app/catalog.py": "d7b8a7823e375e0e7caac629ea93907efaef0d400908089c62f948d414c7157b",
+    "app/engine_manager.py": "f84b780676efd49a1a0bf6012520c9e5bc954898f7c3183d1f7bdb644c405679",
+    "app/engine_manager_gui.py": "002532197829f3f7b63bfe24738f868b9c2b4d1a11ff5e4e54cd75b663c484d2",
+    "app/gui.py": "1eb4937109bdeb18fe76b24f6c4ca3010b0337f12f1e707d97f5f90bc41f8c02",
+    "app/main.py": "4056851ac637b0746e951b64047732158839cca14c8eed4f2cfb4767724d440b",
+    "app/opponents.py": "8b9aa96f2a1976710579353683902526a8048b2311b920d99d1ad2fb35b49a81",
+    "app/verification.py": "19b335d5cd3315181f179264b33e408c8536e0b5f8c77ccba789d3e724e8cd39",
+    "app/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "app/database_readers/arena_abk_reader.py": "e34fe1cd9c538c3ff7176e3fe44af8cce31d75ccb405dd3cfb1746808399edd1",
+    "app/database_readers/chessbase_cbh_reader.py": "b8bdb83df7a9493901fbd54c0e7e52feaf6d4907d93a183c36c1d0beb95b74eb",
+    "app/database_readers/format_detector.py": "ac6ef81955e62d73b2ca16d75a180cc1aab63aba9f5f76996c73c19d6a478729",
+    "app/database_readers/native_bridge.py": "9d601abb294180e944caa68cd575df5b87fdaab6a6a705aaf28c5cd1404c06dd",
+    "app/database_readers/reader_interface.py": "f43b5884d2acf489295aa05141a5a669747383e7531b55b7acab7bf4a9a1dc62",
+    "app/database_readers/reader_registry.py": "4a96ca1996dc3a3d48aaddf1da53caf219a0cf0064dea14f7a286ccdd8bb5aad",
+    "app/database_readers/standard_readers.py": "fcf477fcbc930562bd080c87054a52773f5ba0a212c27ec79a21882d908de1a2",
+    "app/database_readers/__init__.py": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+    "native/arena-reader/src/main.rs": "7682c57f6e6df7fa08d804ef43c4580f2e35d53ed9e79164019b29de82da51eb",
+    "native/arena-reader/Cargo.toml": "2c4e9ef97765f2f117b31d04a418e2a1e152fd254f348f9fab30d61be50446bd",
+    "native/arena-reader/Cargo.lock": "701ee20679af66a9660dc772a65760380e6400f147998e42f44578c5d64c0c5b",
+    "launcher.py": "a15c5f6994bae23fd537347a818fb92fdee74c4ba892f7743def5ef9b9a4326d",
+    "dist/CHESS-BOOK-ARENA/CHESS-BOOK-ARENA.exe": "7ce135fd1ca1c235d920844093b6b36c69f38b0dbacd5747eb58c7961587d773",
+    "dist/CHESS-BOOK-ARENA/_internal/native-bin/arena-reader.exe": "0abdd413cfc936b00b6ffaeed7faa71c33cb5e4191656df6fb7b897217079540",
+    "dist/CHESS-BOOK-ARENA-Setup.exe": "fc2725078e53b4bb8d330c62aab94b3c2c6f89ec5d2121005f693321dcf3df03",
+    "dist/CHESS-BOOK-ARENA-0.2.0-windows-x64.zip": "2d23f7697be027617a2a3effcdbe8464b9bd66b9c9fbcdbb1599cc422bf3c4b2"
+  }
+}

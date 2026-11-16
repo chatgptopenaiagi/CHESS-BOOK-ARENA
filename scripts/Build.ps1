@@ -1,5 +1,6 @@
 $ErrorActionPreference='Stop'
 Set-Location (Split-Path $PSScriptRoot)
+& .\scripts\Build-Native.ps1
 & .\.venv\Scripts\python.exe -m pytest -q
 if($LASTEXITCODE){throw 'Tests failed'}
 & .\.venv\Scripts\python.exe -m PyInstaller --noconfirm CHESS-BOOK-ARENA.spec

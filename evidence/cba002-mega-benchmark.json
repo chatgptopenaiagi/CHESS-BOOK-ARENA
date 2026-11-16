@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "backend": "cbvault 0.1.7",
+  "header_records": 11743083,
+  "eligible_game_records": 11741260,
+  "sampled_valid_games": 106,
+  "expected_non_game_records": 2,
+  "unexpected_sample_failures": [],
+  "annotated_samples": 4,
+  "variation_samples": 1,
+  "nonstandard_samples": 1,
+  "index": {
+    "records_requested": 2000,
+    "seconds": 70.99112169997534,
+    "distinct_positions": 96896,
+    "move_entries": 117217,
+    "cache_bytes": 26894336,
+    "cached_games": 1996,
+    "diagnostics": {
+      "Analysis null markers on mainline: PGN preserved; excluded from historical move statistics": 145
+    }
+  },
+  "source_size_timestamp_unchanged": true,
+  "scope": "Sampled game decoding and bounded indexing, not verification of every eligible game; private PGNs and paths withheld"
+}

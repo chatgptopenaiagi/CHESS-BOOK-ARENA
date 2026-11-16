@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "checks": [
+    "second process reopened persistent catalog",
+    "saved game PGN reloaded and replayed"
+  ],
+  "plies": 4,
+  "packaged": true
+}

@@ -1,12 +1,18 @@
+#ifndef CbaAppId
+#define CbaAppId "ChessBookArena"
+#endif
+#ifndef CbaOutputName
+#define CbaOutputName "CHESS-BOOK-ARENA-Setup"
+#endif
 [Setup]
-AppId=ChessBookArena
+AppId={#CbaAppId}
 AppName=CHESS BOOK ARENA
-AppVersion=0.1.0
+AppVersion=0.2.0
 DefaultDirName={localappdata}\Programs\ChessBookArena
 DefaultGroupName=CHESS BOOK ARENA
 PrivilegesRequired=lowest
 OutputDir=..\dist
-OutputBaseFilename=CHESS-BOOK-ARENA-Setup
+OutputBaseFilename={#CbaOutputName}
 Compression=lzma2
 SolidCompression=yes
 WizardStyle=modern

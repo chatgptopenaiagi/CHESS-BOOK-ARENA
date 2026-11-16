@@ -10,15 +10,18 @@ class Decision:
     reason: str
 
 class Engine:
-    def __init__(self,path='',seconds=.3,depth=16,threads=1,hash_mb=64,elo=0,multipv=3):
-        self.path=path; self.seconds=seconds; self.depth=depth; self.threads=threads; self.hash_mb=hash_mb; self.elo=elo; self.multipv=multipv
+    def __init__(self,path='',seconds=.3,depth=16,threads=1,hash_mb=64,elo=0,multipv=3,options=None):
+        self.path=path; self.seconds=seconds; self.depth=depth; self.threads=threads; self.hash_mb=hash_mb; self.elo=elo; self.multipv=multipv; self.options=options or {}
     def open(self):
         e=chess.engine.SimpleEngine.popen_uci(self.path,timeout=10)
         opts={}
         for name,value in [('Threads',self.threads),('Hash',self.hash_mb),('UCI_LimitStrength',bool(self.elo)),('UCI_Elo',self.elo)]:
             if name in e.options and (name!='UCI_Elo' or self.elo):
                 o=e.options[name]; opts[name]=max(o.min,min(o.max,value)) if isinstance(value,int) and not isinstance(value,bool) and o.min is not None else value
-        e.configure(opts); return e
+        opts.update({k:v for k,v in self.options.items() if k in e.options and not e.options[k].is_managed()})
+        try:e.configure(opts)
+        except Exception:e.close();raise
+        return e
     def analyse(self,b,candidates=None):
         with self.open() as e:
             count=min(self.multipv,len(candidates) if candidates else b.legal_moves.count())
@@ -30,15 +33,19 @@ class Engine:
 
 def discover_engine():
     paths=[shutil.which('stockfish'),os.environ.get('CHESS_ARENA_ENGINE')]
-    return next((p for p in paths if p and Path(p).is_file()),'')
+    candidate=next((p for p in paths if p and Path(p).is_file()),'')
+    if candidate:return candidate
+    from app.engine_manager import EngineRegistry
+    registry=EngineRegistry(Path(os.environ.get('LOCALAPPDATA',Path.home()))/'ChessBookArena'/'engines.json')
+    found=registry.candidates();return str(found[0]) if found else ''
 
 class ChessOpponent:
     def choose(self,board): raise NotImplementedError
 class HistoricalDatabaseOpponent(ChessOpponent):
-    def __init__(self,catalog,sid,strategy='Frequency',player='',engine=None):
-        self.catalog=catalog; self.sid=sid; self.strategy=strategy; self.player=player; self.engine=engine
+    def __init__(self,catalog,sid,strategy='Frequency',player='',engine=None,filters=None):
+        self.catalog=catalog; self.sid=sid; self.strategy=strategy; self.player=player; self.engine=engine; self.filters=filters or {}
     def choose(self,b):
-        rows=self.catalog.candidates(self.sid,b,self.player)
+        rows=self.catalog.candidates(self.sid,b,self.player,self.filters)
         if not rows: return Decision(None,'coverage ended','No legal continuation in the selected repertoire')
         if self.strategy=='Engine assisted':
             if not self.engine or not self.engine.path: raise ValueError('Select a UCI engine for engine-assisted selection')
@@ -52,7 +59,7 @@ class OpeningBookOpponent(HistoricalDatabaseOpponent): pass
 class HistoricalPlayerOpponent(HistoricalDatabaseOpponent): pass
 class EngineOpponent(ChessOpponent):
     def __init__(self,engine): self.engine=engine
-    def choose(self,b): return Decision(self.engine.move(b),'engine','UCI search')
+    def choose(self,b): return Decision(self.engine.move(b),'engine '+Path(self.engine.path).stem,'UCI search')
 class HybridBookEngineOpponent(ChessOpponent):
     def __init__(self,book,engine,fallback='Stop',alternate=None): self.book=book; self.engine=engine; self.fallback=fallback; self.alternate=alternate
     def choose(self,b):

@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "installer_kind": "production installer, existing per-user application upgraded",
+  "from_version": "0.2.0",
+  "to_version": "0.2.0",
+  "installer_exit": 0,
+  "installed_executable_sha256": "7ce135fd1ca1c235d920844093b6b36c69f38b0dbacd5747eb58c7961587d773",
+  "portable_hash_matches": true,
+  "protected_catalog_settings_files": 3,
+  "protected_files_unchanged": true,
+  "actual_database_test": true,
+  "setup_sha256": "fc2725078e53b4bb8d330c62aab94b3c2c6f89ec5d2121005f693321dcf3df03"
+}

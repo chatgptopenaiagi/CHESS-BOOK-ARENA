@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "installer_kind": "isolated AppId variant with identical application payload",
+  "original_registration_preserved": true,
+  "install_exit": 0,
+  "installed_sha256": "7ce135fd1ca1c235d920844093b6b36c69f38b0dbacd5747eb58c7961587d773",
+  "portable_hash_matches": true,
+  "installed_acceptance": "PASS",
+  "uninstall_exit": 0,
+  "executable_removed": true,
+  "setup_sha256": "12033e1dba4b67f892a7c74bd0dc5d35178dae64329a40839ef1fbc7072fd65b"
+}

@@ -4,8 +4,8 @@
 a = Analysis(
     ['launcher.py'],
     pathex=[],
-    binaries=[],
-    datas=[],
+    binaries=[('native/arena-reader/target/release/arena-reader.exe','native-bin')],
+    datas=[('examples/native-fixture','examples/native-fixture')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

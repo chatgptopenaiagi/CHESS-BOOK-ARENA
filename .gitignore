@@ -9,3 +9,15 @@ evidence/installed/
 evidence/source-acceptance.*
 
 evidence/tests.xml
+
+*.private.json
+native/vendor/
+native/target/
+.tools/
+
+*.private.*
+native/arena-reader/target/
+private/
+
+
+evidence/*tests.xml

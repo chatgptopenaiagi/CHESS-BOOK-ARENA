@@ -1,0 +1,41 @@
+{
+  "upstream_revision": "c7d815796e977c1ededef515d6db00bff326bd8d",
+  "files": [
+    {
+      "file": "CMakeLists.txt",
+      "local_sha256": "9680b8a670b0890a98ae44180fe98360034e00609996e1e16a440fa8800bde9b",
+      "upstream_sha256": "9680b8a670b0890a98ae44180fe98360034e00609996e1e16a440fa8800bde9b",
+      "same_after_newline_normalization": true
+    },
+    {
+      "file": "src/database/database.h",
+      "local_sha256": "fe4732028d4faa05b9964621cfd57df385a30fc94d03d487c13456b51a6707e4",
+      "upstream_sha256": "fe4732028d4faa05b9964621cfd57df385a30fc94d03d487c13456b51a6707e4",
+      "same_after_newline_normalization": true
+    },
+    {
+      "file": "src/database/arenabook.cpp",
+      "local_sha256": "14755687a8f013304f40e1e738e5cd2f6025fb3e339834d925ae87c89fc04b7e",
+      "upstream_sha256": "14755687a8f013304f40e1e738e5cd2f6025fb3e339834d925ae87c89fc04b7e",
+      "same_after_newline_normalization": true
+    },
+    {
+      "file": "src/database/ctgdatabase.cpp",
+      "local_sha256": "5eb4c0c869b416d8c33e138ae6585e1904082e65ba528e16048aed13bec23d6a",
+      "upstream_sha256": "5eb4c0c869b416d8c33e138ae6585e1904082e65ba528e16048aed13bec23d6a",
+      "same_after_newline_normalization": true
+    },
+    {
+      "file": "src/database/uciengine.cpp",
+      "local_sha256": "e21e405968b6c9fd0cd51424fe5e2f599131ef8b60e5d17c0706320652125dc8",
+      "upstream_sha256": "e21e405968b6c9fd0cd51424fe5e2f599131ef8b60e5d17c0706320652125dc8",
+      "same_after_newline_normalization": true
+    },
+    {
+      "file": "src/database/scid/sciddatabase.cpp",
+      "local_sha256": "f539b89a3a8885b8cd28ef58f0fb169936aea4d044e7d035e6132e35249dce24",
+      "upstream_sha256": "f539b89a3a8885b8cd28ef58f0fb169936aea4d044e7d035e6132e35249dce24",
+      "same_after_newline_normalization": true
+    }
+  ]
+}

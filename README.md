@@ -1,46 +1,35 @@
-# CHESS BOOK ARENA 0.1.0
+# CHESS BOOK ARENA 0.2.0
 
-A Windows desktop chess workstation that turns imported PGN games and Polyglot books into selectable opponents. Historical and engine moves have separate source labels. This is an initial, unsigned release, not a claim of historical-player strength or proven million-game throughput.
+Windows desktop chess database workstation. Open classic ChessBase **CBH multi-file databases directly**, retrieve annotated games by native ID, build incremental position indexes, and play legal historical continuations. Select Stockfish, Leela Chess Zero or another verified UCI profile independently of the selected database.
 
-## Run
+[Download Windows installer / portable ZIP](https://github.com/chatgptopenaiagi/CHESS-BOOK-ARENA/releases/tag/v0.2.0) · [Compatibility matrix](docs/FORMAT-COMPATIBILITY-0.2.0.md) · [ChessX investigation](docs/CHESSX-ARCHITECTURE-RESEARCH.md) · [Native architecture](docs/NATIVE-READER-ARCHITECTURE.md)
 
-Download **CHESS-BOOK-ARENA-Setup.exe** from Releases and install for the current Windows user. Alternatively extract the entire portable ZIP and run **CHESS-BOOK-ARENA.exe**. Keep its `_internal` directory beside it. Python is not required for either distribution. Windows may warn about the unsigned executable.
+## Open a ChessBase database
 
-1. Choose **Scan folder**, optionally include subfolders, select a source, then **Index selected / resume**. Or use **Import files**.
-2. Wait for `ready`. Inspect the source panel for errors, size, distinct positions and move entries.
-3. Select **Human vs historical database** or **Human vs opening book**, White/Black, and a selection strategy. Click **Start selected mode**; enter zero minutes to disable clocks.
-4. Click or drag pieces. The candidates table shows actual counts, percentages and W/D/L results. Book weights are not game counts or historical results.
-5. At coverage end, stop, explicitly configure an engine/alternate, or undo and **Continue from current position**.
-6. Save, resume, or export PGN using the bottom controls. Historical game explorer supports metadata/year/result/position filtering, replay, selected-game export and variation browsing.
+1. Launch `CHESS-BOOK-ARENA.exe`. Choose **Open database**, then the collection's **`.cbh` entry point**. Keep its companion files in their original directory. The file chooser now recognizes native database entry points.
+2. Review the properties dialog. Missing required companions are reported. Opening reads native metadata without exporting the database to PGN. The source panel distinguishes eligible source records from cached/indexed games.
+3. Use **DATABASE EXPLORER** to retrieve a native game by record ID. **Native player search** searches source headers without requiring the move index; use a surname prefix of at least three characters. The optional year comes from the explorer year field. Up to 100 matching games are decoded for display, with individual failures reported.
+4. Click **Index selected / resume** and choose a bounded record segment. Progress and cancel remain available. The next segment resumes after the last committed native ID. Move statistics and database play use **only the indexed subset**, not the entire eligible game count.
+5. Select White/Black, move selection strategy, filters, and the coverage-ended policy. Click **PLAY AGAINST DATABASE**. Candidate counts, White/draw/Black results and move provenance come from the selected source. Engine fallback is explicitly labeled.
+6. Save, close and reopen the application, then resume the game. Export PGN or replay/analyze positions. **GAME ANALYSIS** evaluates the current game in the background using the selected UCI profile.
 
-All nine mode entry points appear in the mode menu. FEN/EPD imports are available through **Browse imported positions**. Position training also accepts pasted FEN/EPD. Historical player mode is an observable repertoire simulation; only the selected player's actual recorded moves are eligible.
+The source remains read only. Text records, deleted records, decoding errors and analysis-only null markers are distinguished. PGNs containing analysis null mainlines are preserved for replay but excluded from historical statistics. Exact per-record diagnostics remain in the local catalog. No purchased database is shipped with the application; included native examples are generated fixtures.
 
-## Engine
+## Engine manager
 
-Stockfish is optional and is **not bundled**. Select an existing UCI executable in **Configure / verify UCI engine**. The application checks supported options before configuring threads/hash/strength. Set time, depth and MultiPV there. Automatic discovery checks PATH and the optional `CHESS_ARENA_ENGINE` environment variable; arbitrary disk scans are not performed. Pure database and book play do not require an engine. Engine-assisted mode ranks only imported candidate moves; fallback is explicitly labeled `engine fallback`.
+Open **CHESS ENGINE MANAGER** to scan bounded known locations or a trusted selected folder, add a local executable, verify UCI, configure supported options, create profiles, select a default, or remove a profile without deleting its executable. READY means a UCI handshake passed; optional neural-network/backend suitability can still depend on configuration.
 
-## Formats
+**Search official GitHub releases** supports the allowlisted Stockfish and Leela repositories. Pick a Windows x64 asset, review its backend requirements, then download/verify it. Prefer a universal Stockfish or CPU Leela build where appropriate. GPU acceleration is not inferred from installed hardware. Leela may need a weights path and runtime dependencies. The tested Lc0 CPU package supplies a network and OpenBLAS runtime. Engines are optional and are not bundled in the application installer.
 
-| Format | Status | Evidence / boundary |
-|---|---|---|
-| PGN, PGN.GZ | SUPPORTED | Streaming multi-game fixture import, indexing, legal historical play |
-| Polyglot BIN | SUPPORTED | Sorted standard 16-byte entries, python-chess hash/move decoding, legal candidate filtering, weighted selection; synthetic fixture verified |
-| FEN, EPD | SUPPORTED | Validated position imports and training selection |
-| ZIP | SUPPORTED | PGN/PGN.GZ/FEN/EPD streams; BIN extracted to derived storage; 2 GiB/member limit |
-| CBH, CBV, CTG, ABK | UNSUPPORTED | No tested native parser or verified converter installed for this product |
-| SI4, SG4, SN4, SCID4 | UNSUPPORTED | Component extensions recognized; no tested database-set reader |
+The mode selector additionally offers **Human vs selected UCI engine**, **Engine vs engine** and **Database vs database**. Automated opponents stop on coverage/game termination. The default engine and Black engine profile are selected separately for engine matches. Historical player mode is an observable repertoire simulation, not a claim to reproduce a player's strength or personality.
 
-No format is currently classified CONVERSION REQUIRED or EXPERIMENTAL: no converter integration has been verified. For other formats, use the originating application's PGN export, then import that PGN. This is a manual suggestion, not tested compatibility. Extension recognition is separate from import success. The bundled examples are intentionally synthetic, not historical data.
+## Storage and scale
 
-## Data and integrity
+Settings, saved games and the default SQLite catalog live in `%LOCALAPPDATA%\ChessBookArena`. **CACHE SETTINGS** can copy the catalog into an empty user-selected location on another drive; the previous catalog is retained. Native source signatures cover companions, and changed files invalidate derived state. A per-record transaction preserves cancellation/recovery checkpoints. The segment dialog estimates cache requirements and checks free space. Full indexing is optional and can be expensive; see measured [CBA-002 results](docs/CBA-002-RESULTS.md).
 
-Sources are read only. SQLite indexes, source metadata, saved games, archive-book derivatives and settings live under `%LOCALAPPDATA%\ChessBookArena`. No enormous PGN copy is made. A source's size and nanosecond modification time detect changes; reindex clears its old derived entries. Reimport resumes by streaming from the beginning and skipping already committed game digests. It does not seek directly to a compressed offset. Identical games within a source are counted once; identical games in separate sources remain separate. Position keys include piece placement, side, castling rights and legally relevant en passant; move counters are excluded. Automatic draws use the actual game history, not the position index.
+## Build
 
-Cancel finishes the current game transaction. Failed sources retain completed games for later recovery and report errors. Per-game transactions bound memory to one parsed game plus its move list. Extremely large individual games/variation trees can still require significant memory. Never rely on an interrupted index as complete.
-
-## Build and test
-
-PowerShell 7, Python 3.11–3.15 (tested on 3.14), PySide6 6.11, chess 1.11.2 and PyInstaller 6.22.3:
+PowerShell 7, Python 3.11–3.15 (tested 3.14), Rust 1.88+ and the Windows MSVC linker, PySide6 6.11, chess 1.11.2 and PyInstaller 6.22.3:
 
 ```powershell
 python -m venv .venv
@@ -48,10 +37,13 @@ python -m venv .venv
 .\scripts\Build.ps1
 ```
 
-Compile `scripts/installer.iss` with Inno Setup 7 to produce the setup executable. Qt is dynamically shipped with its license materials; python-chess and this application are GPL v3 or later. Stockfish is external. See THIRD-PARTY.md. The exact API behavior follows the upstream [python-chess documentation](https://python-chess.readthedocs.io/en/stable/) and [Qt deployment guidance](https://doc.qt.io/qtforpython-6/deployment/deployment-pyinstaller.html).
+`Build-Native.ps1` fetches the pinned cbvault revision into the ignored vendor directory; it never overwrites a different checkout. The Rust helper is bundled automatically by PyInstaller. Compile `scripts/installer.iss` with Inno Setup 7. Run `scripts/Verify-Installer.ps1 -Compiler <path-to-ISCC.exe>` for an isolated-identity install/launch/uninstall check that preserves an existing installation registration. Python, Rust and compiler tools are not needed by users of the finished distribution.
 
-## Verification and limits
+The portable ZIP must be extracted as a complete directory with `_internal`; run the executable inside it. The per-user installer uses the same runtime. Builds are unsigned. Licensing and source attribution are in [THIRD-PARTY.md](THIRD-PARTY.md) and `licenses/`.
 
-See [test report](docs/TEST-REPORT.md), [architecture](docs/ARCHITECTURE.md) and [release notes](docs/RELEASE-NOTES.md). Evidence covers small deterministic corpora, real local UCI execution, desktop mouse actions, packaged application execution and installer execution. Million-game throughput, broad third-party corpora, clean-machine installation, code signing, accessibility and extended display/DPI matrices remain unverified. Search results cap at 500 games and imported position chooser at 1,000; those are UI caps, not indexing limits. Archives support a single nesting level. PGN mainline moves contribute statistics; side variations remain available in replay/variation browsing but do not inflate frequencies. Unknown results contribute frequency, not performance wins/draws/losses. Undo pauses opponent play; continue explicitly. No opening-name inference corpus is bundled: ECO/opening names come from imported metadata. Clocks are basic whole-second, without increment. Settings use the last configured engine; save files do not pin an engine executable hash. Full game batch evaluation is not implemented; analyze replayed positions individually.
+## Delivery boundary
 
-![Packaged desktop acceptance](evidence/packaged-acceptance.png)
+CBA-002 overall status is **PARTIAL**. Real CBH reading, sourced play, persistence and multiple UCI engines are verified. CTG, Scid and ChessBase archive adapters are not integrated. ABK has generated-file evidence only; 2CBH lacks a representative local real-file test. No million-game full-position-index benchmark, clean external Windows installation or broad DPI/accessibility certification is claimed. Existing chess rules, PGN/Polyglot routes and saved-game functionality remain in place.
+
+![Real CBH packaged acceptance](evidence/cba002-production-installed.png)
+![Engine manager](evidence/cba002-engine-manager.png)

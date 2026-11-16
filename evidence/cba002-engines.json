@@ -1,0 +1,16 @@
+{
+  "profiles": [
+    {
+      "name": "Lc0 v0.32.1",
+      "status": "READY",
+      "sha256": "0d843a96a03493bb8cdcca6462712ebb2371e1547fd334f593c7c10af5507909"
+    },
+    {
+      "name": "Stockfish 19",
+      "status": "READY",
+      "sha256": "45bc8e4969147db9c2eb533810637994619bff0eacc81ccfd9854394901bcbd0"
+    }
+  ],
+  "lc0_backend_verified": "CPU OpenBLAS with supplied network; legal move verified",
+  "gpu_verified": false
+}

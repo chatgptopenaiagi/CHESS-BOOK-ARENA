@@ -1,0 +1,13 @@
+[package]
+name="arena-reader"
+version="0.2.0"
+edition="2024"
+[dependencies]
+cbvault={path="../vendor/cbvault/crates/cbvault"}
+cbvault-format={path="../vendor/cbvault/crates/cbvault-format"}
+serde_json="1"
+[profile.release]
+lto="thin"
+[dev-dependencies]
+cbvault-fixtures={path="../vendor/cbvault/crates/cbvault-fixtures"}
+gigachess="0.1.10"

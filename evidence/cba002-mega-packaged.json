@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "checks": [
+    "grouped native folder discovery",
+    "native metadata and real game count",
+    "background native indexing",
+    "library selection",
+    "legal human moves",
+    "historical sourced replies",
+    "save",
+    "rendered desktop"
+  ],
+  "backend": "cbvault 0.1.7",
+  "eligible_games": 11741260,
+  "indexed_games": 998,
+  "plies": 4,
+  "origins": [
+    "human",
+    "database #1 \u2022 Frequency; 622 recorded occurrences / weight",
+    "human",
+    "database #1 \u2022 Frequency; 249 recorded occurrences / weight"
+  ],
+  "initial_candidate_count": 12,
+  "seconds": 32.76371060000383,
+  "engine_candidates": [
+    "stockfish-windows-x86-64-universal.exe"
+  ],
+  "packaged": true,
+  "real_database": true,
+  "verified_uci_engines": [
+    {
+      "name": "Stockfish 19",
+      "status": "READY"
+    }
+  ]
+}

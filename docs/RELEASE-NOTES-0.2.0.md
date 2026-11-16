@@ -1,0 +1,5 @@
+# 0.2.0 — CBA-002
+
+Extends the original Python/PySide6 application with a pinned read-only cbvault native helper, logical ChessBase companion discovery, actual large-CBH access, stable source IDs, annotated PGN retrieval, source/header validation, native player-prefix search, resumable segment indexing, visible coverage scope and source-specific historical play. Adds an extensible UCI registry, official engine release discovery/download, option-aware profiles, whole-game analysis, engine-vs-engine and database-vs-database modes. Adds a guarded ChessX-derived ABK node adapter with generated-file evidence.
+
+Overall mission status: PARTIAL. Central classic-CBH database play and multi-engine behavior are verified; CTG, Scid and CBV/CBZ adapters remain unsupported, 2CBH/ABK remain partial, full million-game move indexing and clean external-machine testing remain unverified. The application and source formats remain read only. No private source path, purchased database or extracted purchased PGN is published.
