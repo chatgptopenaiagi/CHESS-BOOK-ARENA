@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "url": "https://github.com/chatgptopenaiagi/CHESS-BOOK-ARENA/releases/tag/v0.2.0",
+  "draft": false,
+  "downloaded_checksum_verified": true,
+  "binary_integrity_method": "GitHub uploaded-asset SHA-256 digests compared with tested local artifacts; binaries not downloaded again",
+  "assets": [
+    {
+      "name": "CHESS-BOOK-ARENA-0.2.0-windows-x64.zip",
+      "size": 53514225,
+      "digest": "sha256:2d23f7697be027617a2a3effcdbe8464b9bd66b9c9fbcdbb1599cc422bf3c4b2"
+    },
+    {
+      "name": "CHESS-BOOK-ARENA-Setup.exe",
+      "size": 37456913,
+      "digest": "sha256:fc2725078e53b4bb8d330c62aab94b3c2c6f89ec5d2121005f693321dcf3df03"
+    },
+    {
+      "name": "SHA256SUMS-0.2.0.txt",
+      "size": 200,
+      "digest": "sha256:814b588390d860f590bc6d60e1c34e6cab8efdd69861f70728329807c17072a5"
+    }
+  ],
+  "source_verification": {
+    "status": "PASS",
+    "normalization": "Git CRLF/LF only; local raw hashes match build manifest",
+    "tag": "v0.2.0",
+    "files": [
+      "app/catalog.py",
+      "app/engine_manager.py",
+      "app/engine_manager_gui.py",
+      "app/gui.py",
+      "app/main.py",
+      "app/opponents.py",
+      "app/verification.py",
+      "app/__init__.py",
+      "app/database_readers/arena_abk_reader.py",
+      "app/database_readers/chessbase_cbh_reader.py",
+      "app/database_readers/format_detector.py",
+      "app/database_readers/native_bridge.py",
+      "app/database_readers/reader_interface.py",
+      "app/database_readers/reader_registry.py",
+      "app/database_readers/standard_readers.py",
+      "app/database_readers/__init__.py",
+      "native/arena-reader/src/main.rs",
+      "native/arena-reader/Cargo.toml",
+      "native/arena-reader/Cargo.lock",
+      "launcher.py"
+    ]
+  }
+}
